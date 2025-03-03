@@ -44,7 +44,6 @@ const HomeScreen = ({ route }) => {
       });
     }
   };
-
   const handleEditTask = (id, existingTask) => {
     setTask(existingTask);
     setEditingId(id);

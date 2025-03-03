@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
 import { insertUser } from '../../services/database/database';
 import { createTable } from '../../services/database/database';
+import Loginbtn from '../../components/buttons/Loginbtn'
+import  Registrationbtn  from '../../components/buttons/Registrationbtn';
+import Appname from '../../components/Appname';
 
 const RegistrationScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
@@ -28,7 +31,7 @@ const RegistrationScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.appName}>TODO LIST</Text>
+      <Appname></Appname>
       <Text style={styles.title}>Create your account</Text>
       <TextInput
         placeholder="Username"
@@ -44,10 +47,10 @@ const RegistrationScreen = ({ navigation }) => {
         style={styles.input}
       />
       <View style={styles.buttonContainer}>
-        <Button title="Register" onPress={handleRegister} color="#6200ee" />
+        <Registrationbtn onPress={handleRegister}/>
       </View>
       <View style={styles.buttonContainer}>
-        <Button title="Go to Login" onPress={() => navigation.navigate('Login')} color="#03dac6" />
+        <Loginbtn onPress={()=>navigation.navigate('Login')}/>
       </View>
     </View>
   );
@@ -58,7 +61,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 20,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: 'orange',
   },
   appName: {
     fontSize: 32,
@@ -78,10 +81,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 5,
+    color:'white',
     marginBottom: 15,
     padding: 10,
-    fontSize: 16,
-    backgroundColor: '#fff',
+    fontSize: 18,
+    backgroundColor: 'grey',
   },
   buttonContainer: {
     marginBottom: 10,
